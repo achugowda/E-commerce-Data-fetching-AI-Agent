@@ -1,27 +1,76 @@
-# 🛒 E-commerce Data Agent using AI + SQLite
+# 📦 E-commerce Data-Fetching AI Agent
 
-An AI-powered agent that answers natural language questions about your e-commerce data!  
-Built using **LangChain**, **Mistral**, and **SQLite**, this app simulates real-time interactions with markdown + chart responses in a clean web UI.
-
----
-
-## 🚀 Features
-
-- 🧠 Natural language to SQL using LLaMA3 via Ollama
-- 📊 Automatic chart and table rendering
-- 💬 Real-time markdown streaming (like ChatGPT)
-- 📦 Works with your own `ecommerce.csv` dataset
-- 🧩 Built using LangChain + Streamlit + SQLite
+A local AI-powered agent built with **LangChain**, **Mistral (via Ollama)**, and **SQLite**, enabling users to ask **natural language questions** about their e-commerce data and get answers in plain text, charts, or markdown — all in a local, privacy-friendly setup.
 
 ---
 
-## 📁 Folder Structure
+## 🔍 Features
+
+- 💬 Ask questions like:
+  - "Show total sales for June"
+  - "Which category sold most in Q1?"
+  - "Plot weekly revenue for each brand"
+
+- ⚡ Powered by [Ollama](https://ollama.com) running **Mistral** locally
+- 📊 Automatically generates **SQL**, **markdown tables**, and **charts**
+- 🧠 Uses **LangChain’s SQL Agent**
+- 🗃️ Works with any structured CSV data loaded into SQLite
+- 🌐 Built-in frontend with real-time streaming UI
+
+---
+
+## 🚀 Getting Started
+
+### 1. Steps
 
 ```bash
-📦E-commerce-Data-Agent
- ┣ 📜 llm_agent.py       # LangChain SQL agent
- ┣ 📜 database.py        # Load CSV → SQLite
- ┣ 📜 frontend.py        # Streamlit frontend
- ┣ 📜 ecommerce.csv      # Your input data
- ┣ 📜 ecommerce.db       # Auto-generated SQLite DB
- ┗ 📜 README.md
+git clone https://github.com/achugowda/E-commerce-Data-fetching-AI-Agent.git
+cd E-commerce-Data-fetching-AI-Agent
+
+### 2️. Create and Activate Virtual Environment
+python -m venv venv
+
+# For Linux/Mac
+source venv/bin/activate
+
+# For Windows
+venv\Scripts\activate
+
+### 3. Install Python Dependencies
+pip install -r requirements.txt
+
+### 4. Set Up Ollama and Pull Mistral Model
+
+Download and install Ollama from: https://ollama.com
+Open a terminal and pull the Mistral model:
+ollama pull mistral
+Make sure Ollama is running in the background.
+
+## How It Works
+
+database.py – Loads your ecommerce .csv into SQLite.
+llm_agent.py – Runs LangChain’s SQL Agent over your database.
+main.py – FastAPI backend to serve user queries.
+frontend/ – Web UI to input queries and see results in real-time (with markdown + charts).
+
+
+##📂 Folder Structure
+
+E-commerce-Data-fetching-AI-Agent/
+├── database.py
+├── llm_agent.py
+├── main.py
+├── requirements.txt
+├── frontend/
+│   ├── index.html
+│   └── ...
+└── data/
+    └── ecommerce.csv  ← (Your data file)
+
+
+
+
+
+
+
+
